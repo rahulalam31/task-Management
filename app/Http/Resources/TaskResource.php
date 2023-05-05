@@ -21,7 +21,7 @@ class TaskResource extends JsonResource
             'due_date' => $this->due_date, //->format('d/m/Y'),
             'status' => $this->status,
             'priority' => $this->priority,
-            // 'notes' => $this->NoteResource()
+             'notes' => NoteResource::collection($this->id),
         ];
     }
 }
