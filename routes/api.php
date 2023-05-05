@@ -26,7 +26,7 @@ Route::controller(AuthController::class)->group(function(){
 
 Route::middleware('auth:sanctum')->group( function () {
 
-    Route::resource('/task', TasksController::class);
-    Route::resource('/note', NotesController::class);
+    Route::apiresource('/task', TasksController::class);
+    Route::apiresource('/note', NotesController::class);
 
 });

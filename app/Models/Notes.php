@@ -9,8 +9,18 @@ class Notes extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'subject',
+        'attachment',
+        'note'
+    ];
 
-    public function tasks(): BelongsTo
+    public function tasks()
     {
         return $this->belongsTo(Tasks::class, 'id', 'task_id');
     }

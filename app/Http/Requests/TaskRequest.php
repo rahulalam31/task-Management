@@ -24,17 +24,21 @@ class TaskRequest extends FormRequest
         return [
             'subject' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:500'],
-            'start_date' => ['required', 'date'],
-            'due_date' => ['required', 'date'],
-            'status' => ['required', 'in:New,Incomplete,Complete'],
-            'priority' => ['required', 'in:High,Medium,Low'],
+            'start_date' => ['required'], //, 'date_format:d/m/y'],
+            'due_date' => ['required'], //, 'date_format:d/m/y'],
+            'status' => ['required'], //, 'in:New,Incomplete,Complete'],
+            'priority' => ['required'], //, 'in:High,Medium,Low'],
+            'notes' => ['required','array'],
+            'notes.*.subject' => ['required','string','max:255'],
+            'notes.*.note' => ['required','string'],
+            'notes.*.attachment' => ['nullable','file']
         ];
     }
 
     public function messages()
     {
         return [
-            'subject.required' => 'subject is required!',
+            'subject.required' => 'Subject is required!',
             'description.required' => 'description is required!',
             'start_date.required' => 'start_date is required!',
             'due_date.required' => 'due_date is required!',
