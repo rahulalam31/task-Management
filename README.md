@@ -19,6 +19,7 @@ This is a simple Task management curd api with user login and register feature. 
 
 2. Now run this command to migrate and seed the database: 
     ```php artisan migrate --db-seed```
+    ```php artisan db:seed --class=TaskSeeder```
 
 3. If you are using postman for testing use the postman collection in the root folder.
 OR.
